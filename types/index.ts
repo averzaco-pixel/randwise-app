@@ -35,17 +35,87 @@ export interface PantryItem {
   price: number;
 }
 
+export type EquipmentType = 'Stove' | 'Pot' | 'Pan' | 'Air Fryer' | 'Microwave' | 'Oven';
+export type MealCategory = 'Breakfast' | 'Lunch' | 'Dinner' | 'Snack';
+export type RecipeCategory =
+  | 'Quick Weekday'
+  | 'Budget'
+  | 'Family Dinner'
+  | 'Lunchbox'
+  | 'One-Pot'
+  | 'Air-Fryer'
+  | 'Stovetop'
+  | 'No-Oven'
+  | 'Vegetarian'
+  | 'Leftover'
+  | 'Breakfast'
+  | 'Lunch'
+  | 'Dinner'
+  | 'Snack'
+  | 'Soup and Stew';
+export type Difficulty = 'Easy' | 'Medium' | 'Hard';
+export type DietaryTag =
+  | 'Vegetarian'
+  | 'Vegan'
+  | 'Gluten-Free'
+  | 'Dairy-Free'
+  | 'Low-Carb'
+  | 'High-Protein'
+  | 'Halal'
+  | 'Pescatarian';
+export type AllergenTag = 'Gluten' | 'Dairy' | 'Eggs' | 'Soy' | 'Fish' | 'Nuts' | 'Peanuts';
+
+export interface RecipeIngredient {
+  name: string;
+  quantity: number;
+  unit: string;
+  isStaple?: boolean;
+  isOptional?: boolean;
+  substitute?: string;
+  estimatedPrice: number;
+}
+
 export interface Recipe {
   id: string;
-  name: string;
-  image: string;
+  title: string;
+  description: string;
+  mealCategory: MealCategory;
+  recipeCategories: RecipeCategory[];
+  cuisineType: string;
   prepTime: number;
   cookTime: number;
+  totalTime: number;
   servings: number;
-  estimatedCost: number;
-  availableIngredients: string[];
-  missingIngredients: string[];
-  steps: string[];
+  difficulty: Difficulty;
+  estimatedTotalCost: number;
+  estimatedCostPerServing: number;
+  equipment: EquipmentType[];
+  ingredients: RecipeIngredient[];
+  optionalIngredients: RecipeIngredient[];
+  substitutes: { ingredient: string; substitute: string }[];
+  instructions: string[];
+  dietaryTags: DietaryTag[];
+  allergenTags: AllergenTag[];
+  thumbnail: string;
+  storageInstructions: string;
+  leftoverSuggestions: string;
+}
+
+export interface PantryMatchResult {
+  matchPercentage: number;
+  availableIngredients: { name: string; quantity: number; unit: string }[];
+  missingIngredients: { name: string; quantity: number; unit: string; estimatedPrice: number }[];
+  missingCostTotal: number;
+}
+
+export interface MealPlanEntry {
+  id: string;
+  day: string;
+  recipeId: string;
+  recipeName: string;
+  mealType: 'Breakfast' | 'Lunch' | 'Dinner';
+  servings: number;
+  cooked: boolean;
 }
 
 export interface Expense {
@@ -55,14 +125,6 @@ export interface Expense {
   date: string;
   category: string;
   items: number;
-}
-
-export interface MealPlanEntry {
-  id: string;
-  day: string;
-  recipeId: string;
-  recipeName: string;
-  mealType: string;
 }
 
 export interface PricingPlan {
