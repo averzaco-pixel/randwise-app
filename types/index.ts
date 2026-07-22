@@ -35,7 +35,7 @@ export interface PantryItem {
   price: number;
 }
 
-export type EquipmentType = 'Stove' | 'Pot' | 'Pan' | 'Air Fryer' | 'Microwave' | 'Oven';
+export type EquipmentType = 'Stove' | 'Pot' | 'Pan' | 'Air Fryer' | 'Microwave' | 'Oven' | 'Muffin Tin';
 export type MealCategory = 'Breakfast' | 'Lunch' | 'Dinner' | 'Snack';
 export type RecipeCategory =
   | 'Quick Weekday'
@@ -52,7 +52,10 @@ export type RecipeCategory =
   | 'Lunch'
   | 'Dinner'
   | 'Snack'
-  | 'Soup and Stew';
+  | 'Soup and Stew'
+  | 'Quick <30min'
+  | 'Healthy'
+  | 'Weekend';
 export type Difficulty = 'Easy' | 'Medium' | 'Hard';
 export type DietaryTag =
   | 'Vegetarian'
@@ -62,7 +65,8 @@ export type DietaryTag =
   | 'Low-Carb'
   | 'High-Protein'
   | 'Halal'
-  | 'Pescatarian';
+  | 'Pescatarian'
+  | 'High-Fiber';
 export type AllergenTag = 'Gluten' | 'Dairy' | 'Eggs' | 'Soy' | 'Fish' | 'Nuts' | 'Peanuts';
 
 export interface RecipeIngredient {

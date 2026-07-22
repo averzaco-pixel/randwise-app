@@ -142,12 +142,12 @@ export default function DashboardScreen() {
               <UtensilsCrossed size={24} color={Colors.primary} />
             </View>
             <View style={styles.dinnerInfo}>
-              <Text style={styles.dinnerName}>{recipes[0].name}</Text>
+              <Text style={styles.dinnerName}>{recipes[0].title}</Text>
               <Text style={styles.dinnerMeta}>{recipes[0].prepTime + recipes[0].cookTime} min · {recipes[0].servings} servings</Text>
               <View style={styles.dinnerBadges}>
-                <Badge label={`R${recipes[0].estimatedCost}`} variant="green" size="small" />
-                <Badge label={`${recipes[0].availableIngredients.length} available`} variant="gold" size="small" />
-                <Badge label={`${recipes[0].missingIngredients.length} missing`} variant="red" size="small" />
+                <Badge label={`R${recipes[0].estimatedTotalCost}`} variant="green" size="small" />
+                <Badge label={`${recipes[0].servings} servings`} variant="gold" size="small" />
+                <Badge label={recipes[0].difficulty} variant="blue" size="small" />
               </View>
             </View>
           </View>

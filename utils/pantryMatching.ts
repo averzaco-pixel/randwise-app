@@ -64,7 +64,6 @@ const NAME_ALIASES: Record<string, string[]> = {
   'chutney': ['chutney', 'peach chutney', 'fruit chutney'],
   'worcestershire': ['worcestershire sauce', 'worcestershire'],
   'peri-peri': ['peri peri sauce', 'peri-peri', 'hot sauce'],
-  'baked beans': ['baked beans'],
   'wraps': ['tortilla wraps', 'wraps', 'flour tortillas'],
   'tortillas': ['tortilla wraps', 'wraps', 'flour tortillas'],
   'noodles': ['instant noodles', '2-minute noodles', 'ramen'],

@@ -1,4 +1,7 @@
-import { ShoppingCategory, PantryItem, ShoppingItem, Recipe, Expense, MealPlanEntry, PricingPlan, HouseholdMember, NotificationItem } from '@/types';
+import { ShoppingCategory, PantryItem, ShoppingItem, Expense, MealPlanEntry, PricingPlan, HouseholdMember, NotificationItem } from '@/types';
+import { allRecipes } from '@/constants/recipes';
+
+export { allRecipes as recipes };
 
 export const shoppingCategories: { name: ShoppingCategory; icon: string }[] = [
   { name: 'Fruit and Vegetables', icon: '🥬' },
@@ -48,123 +51,6 @@ export const pantryItems: PantryItem[] = [
   { id: '10', name: 'Coffee 200g', category: 'Drinks', quantity: 1, unit: 'jar', expiryDate: '2026-09-01', lowStock: true, price: 69.99 },
 ];
 
-export const recipes: Recipe[] = [
-  {
-    id: '1',
-    name: 'Creamy Chicken Pasta',
-    image: 'pasta',
-    prepTime: 15,
-    cookTime: 25,
-    servings: 4,
-    estimatedCost: 145,
-    availableIngredients: ['Chicken', 'Pasta', 'Cooking oil', 'Onions'],
-    missingIngredients: ['Cream', 'Garlic', 'Parmesan'],
-    steps: [
-      'Boil pasta in salted water until al dente, then drain.',
-      'Season chicken with salt and pepper, then pan-sear in oil until golden.',
-      'Sauté sliced onions and garlic until soft and fragrant.',
-      'Slice the cooked chicken and return to the pan.',
-      'Pour in cream and grated parmesan, stirring until smooth.',
-      'Toss the cooked pasta in the creamy sauce and serve hot.',
-    ],
-  },
-  {
-    id: '2',
-    name: 'Chicken and Vegetable Stew',
-    image: 'stew',
-    prepTime: 20,
-    cookTime: 45,
-    servings: 6,
-    estimatedCost: 120,
-    availableIngredients: ['Chicken', 'Potatoes', 'Tomatoes', 'Onions', 'Cooking oil'],
-    missingIngredients: ['Carrots', 'Garlic', 'Stock cubes'],
-    steps: [
-      'Brown chicken pieces in a large pot with heated oil.',
-      'Add chopped onions and garlic, frying until soft.',
-      'Stir in chopped tomatoes and cook for 5 minutes.',
-      'Add peeled potatoes and carrots to the pot.',
-      'Pour in stock and simmer for 40 minutes until tender.',
-      'Season to taste and serve with rice or pap.',
-    ],
-  },
-  {
-    id: '3',
-    name: 'Pap and Tomato Relish',
-    image: 'pap',
-    prepTime: 10,
-    cookTime: 20,
-    servings: 4,
-    estimatedCost: 55,
-    availableIngredients: ['Maize meal', 'Tomatoes', 'Onions', 'Cooking oil'],
-    missingIngredients: ['Green pepper', 'Chilli'],
-    steps: [
-      'Bring 4 cups of water to a boil in a pot.',
-      'Slowly whisk in maize meal, stirring to avoid lumps.',
-      'Reduce heat and cook covered for 15 minutes, stirring occasionally.',
-      'For the relish, fry chopped onions and tomatoes in oil.',
-      'Add diced green pepper and chilli, simmering for 10 minutes.',
-      'Serve the pap warm with the tomato relish spooned on top.',
-    ],
-  },
-  {
-    id: '4',
-    name: 'Beef Mince Curry and Rice',
-    image: 'curry',
-    prepTime: 15,
-    cookTime: 35,
-    servings: 4,
-    estimatedCost: 110,
-    availableIngredients: ['Mince', 'Rice', 'Onions', 'Tomatoes', 'Cooking oil'],
-    missingIngredients: ['Curry powder', 'Garlic', 'Ginger'],
-    steps: [
-      'Brown the mince in a pan with heated oil, breaking it apart.',
-      'Add chopped onions and fry until golden and translucent.',
-      'Stir in minced garlic, ginger, and curry powder, cooking for 1 minute.',
-      'Add chopped tomatoes and a splash of water, simmering for 20 minutes.',
-      'Meanwhile, cook rice according to package instructions.',
-      'Serve the curry mince over a bed of fluffy rice.',
-    ],
-  },
-  {
-    id: '5',
-    name: 'Egg Fried Rice',
-    image: 'fried-rice',
-    prepTime: 10,
-    cookTime: 15,
-    servings: 3,
-    estimatedCost: 45,
-    availableIngredients: ['Rice', 'Eggs', 'Onions', 'Cooking oil'],
-    missingIngredients: ['Soy sauce', 'Spring onion', 'Peas'],
-    steps: [
-      'Cook rice in advance and let it cool completely.',
-      'Scramble the eggs in a hot wok with a little oil, then set aside.',
-      'Sauté chopped onions in oil until soft.',
-      'Add the cold rice, breaking up clumps and stir-frying for 5 minutes.',
-      'Return the scrambled eggs to the wok and mix through.',
-      'Season with soy sauce and garnish with spring onions.',
-    ],
-  },
-  {
-    id: '6',
-    name: 'Vegetable Soup',
-    image: 'soup',
-    prepTime: 15,
-    cookTime: 30,
-    servings: 4,
-    estimatedCost: 65,
-    availableIngredients: ['Tomatoes', 'Potatoes', 'Onions', 'Cooking oil'],
-    missingIngredients: ['Carrots', 'Celery', 'Vegetable stock'],
-    steps: [
-      'Heat oil in a large pot and sauté chopped onions.',
-      'Add diced carrots and celery, cooking for 5 minutes.',
-      'Stir in chopped tomatoes and peeled potato cubes.',
-      'Pour in vegetable stock and bring to a boil.',
-      'Reduce heat and simmer for 25 minutes until vegetables are tender.',
-      'Season well and serve hot with fresh bread.',
-    ],
-  },
-];
-
 export const expenses: Expense[] = [
   { id: '1', name: 'Pick n Pay — Monthly shop', amount: 1245.5, date: '2026-07-14', category: 'Monthly Shop', items: 23 },
   { id: '2', name: 'Woolworths — Fresh produce', amount: 320.0, date: '2026-07-12', category: 'Fresh Produce', items: 8 },
@@ -175,13 +61,13 @@ export const expenses: Expense[] = [
 ];
 
 export const weeklyMealPlan: MealPlanEntry[] = [
-  { id: '1', day: 'Monday', recipeId: '3', recipeName: 'Pap and Tomato Relish', mealType: 'Dinner' },
-  { id: '2', day: 'Tuesday', recipeId: '5', recipeName: 'Egg Fried Rice', mealType: 'Dinner' },
-  { id: '3', day: 'Wednesday', recipeId: '2', recipeName: 'Chicken and Vegetable Stew', mealType: 'Dinner' },
-  { id: '4', day: 'Thursday', recipeId: '4', recipeName: 'Beef Mince Curry and Rice', mealType: 'Dinner' },
-  { id: '5', day: 'Friday', recipeId: '1', recipeName: 'Creamy Chicken Pasta', mealType: 'Dinner' },
-  { id: '6', day: 'Saturday', recipeId: '6', recipeName: 'Vegetable Soup', mealType: 'Dinner' },
-  { id: '7', day: 'Sunday', recipeId: '2', recipeName: 'Chicken and Vegetable Stew', mealType: 'Dinner' },
+  { id: '1', day: 'Monday', recipeId: 'st-pap-tomato-relish', recipeName: 'Pap and Tomato Relish', mealType: 'Dinner', servings: 4, cooked: false },
+  { id: '2', day: 'Tuesday', recipeId: 'st-egg-fried-rice', recipeName: 'Egg Fried Rice', mealType: 'Dinner', servings: 3, cooked: false },
+  { id: '3', day: 'Wednesday', recipeId: 'st-chicken-veg-stew', recipeName: 'Chicken and Vegetable Stew', mealType: 'Dinner', servings: 6, cooked: false },
+  { id: '4', day: 'Thursday', recipeId: 'st-beef-curry-rice', recipeName: 'Beef Mince Curry and Rice', mealType: 'Dinner', servings: 4, cooked: false },
+  { id: '5', day: 'Friday', recipeId: 'st-chicken-pasta', recipeName: 'Chicken Pasta', mealType: 'Dinner', servings: 4, cooked: false },
+  { id: '6', day: 'Saturday', recipeId: 'st-veg-soup', recipeName: 'Bean-Free Vegetable Soup', mealType: 'Dinner', servings: 4, cooked: false },
+  { id: '7', day: 'Sunday', recipeId: 'st-boerewors-pap', recipeName: 'Boerewors and Pap', mealType: 'Dinner', servings: 4, cooked: false },
 ];
 
 export const pricingPlans: PricingPlan[] = [
